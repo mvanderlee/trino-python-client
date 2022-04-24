@@ -209,7 +209,7 @@ class Cursor(object):
 
     @property
     def description(self):
-        if self._query.columns is None:
+        if not hasattr(self._query, 'columns') or self._query.columns is None:
             return None
 
         # [ (name, type_code, display_size, internal_size, precision, scale, null_ok) ]
